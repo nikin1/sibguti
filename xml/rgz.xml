@@ -5,20 +5,7 @@
 		<price>2</price>
 		<name>Задание по вариантам</name>		
 		<variants>
-			<sequence variant="1">
-				<name>Числа Фибоначчи</name>
-				<items1>
-					<item><num color="#336600">1</num><val>0</val></item>
-					<item><num color="#330000">2</num><val>1</val></item>
-					<item><num color="#330066">3</num><val>1</val></item>
-					<item><num color="#660033">4</num><val>2</val></item>
-					<item><num color="#006633">5</num><val>3</val></item>
-					<item><num color="#000033">6</num><val>5</val></item>
-					<item><num color="#663300">7</num><val>8</val></item>
-					<item><num color="#003300">8</num><val>13</val></item>
-					<item><num color="#003366">9</num><val>21</val></item>
-				</items1>
-			</sequence>
+
 			<sequence variant="2">
 				<name>Числа Трибоначчи</name>
 				<items>
@@ -33,32 +20,12 @@
 					<item><num color="#003366">9</num><val>24</val></item>
 				</items>
 			</sequence>
-			<sequence variant="3">
-				<name>Числа Люка</name>
-				<items>
-					<item><num color="#336600">1</num><val>2</val></item>
-					<item><num color="#330000">2</num><val>1</val></item>
-					<item><num color="#330066">3</num><val>3</val></item>
-					<item><num color="#660033">4</num><val>4</val></item>
-					<item><num color="#006633">5</num><val>7</val></item>
-					<item><num color="#000033">6</num><val>11</val></item>
-					<item><num color="#663300">7</num><val>18</val></item>
-					<item><num color="#003300">8</num><val>29</val></item>
-					<item><num color="#003366">9</num><val>47</val></item>
-				</items>
-			</sequence>
+
 			<sequence variant="4">
 				<name>Факториал числа</name>
 				<items>
-					<item><num color="#336600">1</num><val>1</val></item>
-					<item><num color="#330000">2</num><val>2</val></item>
-					<item><num color="#330066">3</num><val>6</val></item>
-					<item><num color="#660033">4</num><val>24</val></item>
-					<item><num color="#006633">5</num><val>120</val></item>
-					<item><num color="#000033">6</num><val>720</val></item>
-					<item><num color="#663300">7</num><val>5040</val></item>
-					<item><num color="#003300">8</num><val>40320</val></item>
-					<item><num color="#003366">9</num><val>362880</val></item>
+
+
 				</items>
 			</sequence>
 		</variants>
@@ -66,6 +33,7 @@
 	<page num="1">
 		<name>Картинка</name>		
 		<table  type="img" row-size="7">
+			<!-- Чтобы сделать картинку измени ссылки -->
 				<item><order>49</order><url>https://github.com/mironnsk/sibsuti/tree/master/rgz/mem/49.jpg</url></item>
 				<item><order>47</order><url>https://github.com/mironnsk/sibsuti/tree/master/rgz/mem/47.jpg</url></item>
 				<item><order>41</order><url>https://github.com/mironnsk/sibsuti/tree/master/rgz/mem/41.jpg</url></item>
