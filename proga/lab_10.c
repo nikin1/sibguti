@@ -11,6 +11,7 @@ void output_matrix(int n, int A[n][n]) {
             if (j != n - 1) printf(" ");
         }
     }
+	printf("\n");
 }
 
 void input(int n, int A[n][n]) {
@@ -21,23 +22,16 @@ void input(int n, int A[n][n]) {
     }
 }
 
-void array_b(int n, int B[], int A[n][n], int *index) {
+void array_b(int n, int *B, int A[n][n], int *index) {
     int right_diag_x_y = 0, left_diag_x = n - 1, left_diag_y = 0; // координаты x/y главной и побочной диагонали
     int q;
     for (int y = 0; y < n; y++) {
         for (int x = 0; x < n; x++) {
             if (y == right_diag_x_y && y == left_diag_y && x < right_diag_x_y && x < left_diag_x ) { // если по x левее координаты x у диагонали
-                printf("B[i]: %d\n", A[y][x]);
-
-                q = A[y][x];
-                // printf("A[0][0]: %d\n", A[0][0]);
-                B[*index] = q;
-                *index += *index;
-                // printf("check: %d\n", A[0][0]);
-                
+                // printf("B[i]: %d\n", A[y][x]);
+		B[*index] = A[y][x];
+                *index += 1; 
             }
-
-
 
             if (x == right_diag_x_y && y == right_diag_x_y) 
                 right_diag_x_y++;
@@ -54,9 +48,13 @@ void array_b(int n, int B[], int A[n][n], int *index) {
 
 void output_array(int n, int *B) {
     printf("\n");
+    //printf("index: %d\n", n);
+    printf("Array_B: [");
     for (int i = 0; i < n; i++) {
-        printf("%d ", B[i]);
+        printf("%d", B[i]);
+	if (i != n - 1) printf(", ");
     }
+    printf("]");
     printf("\n");
 }
 
@@ -76,12 +74,11 @@ int product(int n, int *B, int A[n][n], int *index) {
     int res = -1, err = -1;
     if (n % 2 != 0) {
         res = 1;
-        // int center = n / 2 + 1; // получаем центральные координаты x/y
         int center  = A[n/2][n/2];
         // printf("center: %d\n", center);
 
         for (int i = 0; i < *index; i++) {
-            if (B[i] < center) {
+            if (B[i] > center) {
                 err = 1;
                 res *= B[i];
             } 
@@ -95,30 +92,29 @@ int product(int n, int *B, int A[n][n], int *index) {
 
 int main() {
     // создание матрицы
-    int n, center, *index;
-    *index = 0;
-    printf("n: ");
+  
+    int n, center, index = 0;
+    printf("Введите длину массива n: ");
     scanf("%d", &n);
     int A[n][n];
-
+    printf("заполните массив:\n");
     input(n, A);
 
-    int B[n / 4]; // не больше
+    int B[20];
 
-    array_b(n, B, A, index);
-    // output_array(n, B);
+    array_b(n, B, A, &index);
+    output_array(index, B);
 
-    int res = product(n, B, A, index);
-    if (res == -1) printf("Не получилось найти произведение, т.к. нет пересечения диагоналей\n");
-    else if (res = 0) printf("Не получилось найти произведение, т.к. нет пересечения диагоналей\n"); 
-
-
-    min(n, A);
-
+   int res = product(n, B, A, &index);
+   if (res == -1) printf("Не получилось найти произведение, т.к. нет пересечения диагоналей\n");
+   else if (res == 0) printf("Не получилось найти произведение, т.к. все элементы массива В меньше точки, лежащей на пересечении диаг.\n"); 
+   else printf("Произведение элементов массива B: %d\n", res);
+   min(n, A);
 
 
 
 
+    printf("Вывод матрицы A:\n");
     output_matrix(n, A);
 
     return 0;
